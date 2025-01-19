@@ -69,7 +69,7 @@ fn check_id_dir(args: &Args) -> Result<PathBuf, Error> {
     ))
 }
 
-// Write the next image to the current_wallpaper file and create a symlink
+// Write the next image to the current_wallpaper-file and create a symlink
 fn write_next_image(image_dir: &Path, current_wallpaper_file: &Path) -> Result<String, Error> {
     fn write_and_link(image_id_file: &Path, current_wallpaper: &str) {
         // Write the content to the file
@@ -98,7 +98,6 @@ fn write_next_image(image_dir: &Path, current_wallpaper_file: &Path) -> Result<S
         .collect();
 
     let current_wallpaper = read_to_string(current_wallpaper_file);
-    println!("{:?}", current_wallpaper);
 
     let i = entries.iter().position(|entry| {
         if let Ok(current_wallpaper) = &current_wallpaper {
